@@ -1,5 +1,5 @@
 class SurakartaActions
-  attr_accessor :player_turn, :board, :coord
+  attr_accessor :playerTurn, :board, :coord
 
   # Constructor
   def initialize
@@ -15,9 +15,9 @@ class SurakartaActions
   # Private Methods
   private
 
-  def end_game_check
+  def endGameCheck
   end
 
-  def send_results
+  def sendResults
   end
 end

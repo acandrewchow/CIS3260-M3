@@ -1,17 +1,28 @@
 class GameRoom
-  attr_accessor :players, :games_played, :game_set
+  attr_accessor :players, :gamesPlayed, :gameSet
 
   # Constructor
   def initialize
+    @players = [
+      Players.new(1),  # Player 1
+      Players.new(2)   # Player 2
+    ]
+    @games_played = 0
+    @games_set = 1
   end
 
   # Public Methods
-  def make_game
+  def makeGame
+    "Game has been created"
   end
 
-  def modify_game_room
+  def modifygameRoom
   end
 
-  def get_stats
+  def getStats
+    player1 = @players[0]
+    player2 = @players[1]
+ 
+    "#{player1.username}: #{player1.score} wins total out of #{@games_played} games played, #{player2.username}: #{player2.score} wins total out of #{@games_played} games played"
   end
 end

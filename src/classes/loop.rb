@@ -8,6 +8,6 @@ class Loop
   end
 
   # Public Methods
-  def loop_convert(edge, direction)
+  def loopConvert(edge, direction)
   end
 end

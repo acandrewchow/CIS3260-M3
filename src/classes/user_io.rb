@@ -1,21 +1,66 @@
 class UserIO
-  attr_accessor :game_io, :usr_input, :output
+  attr_accessor :gameIO, :roomIO :usrInput, :output
 
   # Constructor
   def initialize
+    @gameIO = nil
+    @usrInput = nil
+    @output = "Welcome to Surakarta!"
+    puts @output
   end
 
   # Public Methods
-  def display_board(board)
+  # Displays a 6x6 board
+  # . represent a spot in the board if there is no piece present
+  def displayBoard(board)
+    board.pieces.each do |row|
+      puts row.map { |piece| piece || '.'}.join(' ')
   end
 
-  def get_input
+  def getInput
+    # Get the user input and set it as usrInput (this is unexplained)
+    print "$ "
+    input = gets
+    @usrInput = input
+    # According to the design group you switch depending in the user input 
+    case input
+    when "X"
+    
+    when "Y"
+
+    when "Z"
+    
   end
 
-  def display_message(message)
+  def displayMessage(message)
+    # ??? 
+    output = @gameIO.sendRequest(message)
+    puts "{output}"
   end
 
-  def start_game
-  end
+  def startGame
 
+    #uc402
+    puts "$ Enter Player 1's name:"
+    player1_name = gets
+    puts "$ Enter Player 2's name:"
+    player2_name = gets
+
+    #uc403
+    puts "$ Select game mode (1: Total score mode, 2: # Matches mode):"
+    game_mode = getInput
+
+    if game_mode == 1
+      puts "$ Enter the total score to win:"
+      total_score = getInput
+      #need sendReq here
+      
+    elsif scoring_mode == 2
+      puts "$ Enter the number of matches to play:"
+      number_of_matches = get_input
+      #need sendReq here
+
+    else
+      puts "* Invalid input. Please restart game setup."
+      return
 end

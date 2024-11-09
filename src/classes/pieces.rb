@@ -3,14 +3,12 @@ class Pieces
 
   # Constructor
   def initialize(coor, color)
-    @coor = coor
+    @coor = coord
     @color = color
   end
 
   # Public Methods
-  def move(coord)
-  end
-
-  def remove
+  def moveTo(coord)
+    @coor = coord
   end
 end

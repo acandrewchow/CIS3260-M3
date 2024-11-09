@@ -1,8 +1,9 @@
 module SurakartaInterface
   # Public Methods
-  def action(coordinate)
+  def requestAction(coordinate)
+    # coordinate abseda ction gets sent to surakarata actions
   end
 
-  def request_response
+  def requestResponse(string)
   end
 end

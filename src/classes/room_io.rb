@@ -1,17 +1,20 @@
 class RoomIO
-  attr_accessor :game_room, :usr_input, :response
+  attr_accessor :gameRoom, :usrInput, :response
 
   # Constructor
   def initialize
+    @gameRoom = GameRoom.new
+    @usrInput = ""
+    @response = ""
   end
 
   # Public Methods
-  def setup_game_room(players)
+  def setupGameRoom(players)
   end
 
-  def update_room_state
+  def updateRoomState
   end
 
-  def display_room_status
+  def displayRoomStatus
   end
 end

@@ -1,14 +1,14 @@
 class StateProcessor
-  attr_accessor :players, :game_input, :response
+  attr_accessor :players, :gameInput, :response
 
   # Constructor
   def initialize(game)
   end
 
   # Public Methods
-  def parse_json(json)
+  def parseJSON(json)
   end
 
-  def update_state(game_input, map, players)
+  def updateState(game_input, map, players)
   end
 end

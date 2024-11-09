@@ -1,17 +1,20 @@
 module GameRoomInterface
   # Public Methods
-  def make_game
+  def makeGame
   end
 
-  def modify_game_room(request)
+  def modifyGameRoom(request)
   end
 
-  def get_stats
+  def getStats
   end
 
-  def change_user_name(user_name, name)
+  def changeUserName(userName, name)
   end
 
-  def update_score(json)
+  def updateScore(json)
+  end
+
+  def requestResponse(string)
   end
 end
