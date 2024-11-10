@@ -8,7 +8,7 @@ class Pieces
   end
 
   # Public Methods
-  def moveTo(coord)
+  def moveTo(coord) # i.e {1,4}
     @coor = coord
   end
 end

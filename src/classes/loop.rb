@@ -9,5 +9,6 @@ class Loop
 
   # Public Methods
   def loopConvert(edge, direction)
+    # what is arithmetic?
   end
 end

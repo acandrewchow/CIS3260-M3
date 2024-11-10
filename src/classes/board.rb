@@ -4,10 +4,11 @@ class Board
 
   # Constructor
   def initialize
+    @pieces = Array.new(6) { Array.new(6) } #make the board
   end
 
   # Public Methods
-  def action(player_turn, piece_selected, coord_request, legal_action)
+  def action(player_turn, piece_selected, coord_request, legal_action)# no return type?????
 
     #check if a piece is selected
     if(piece_selected){
@@ -18,6 +19,7 @@ class Board
         #(b/c in getlegalmoves it says that it deals with one specific piece???)
         if(moves.include?(coord_request)){#check if move is in legal moves
           captures = getLegalCaptures() #get the legal captures has the same issue as getlegalmoves?????
+          move(player_turn, piece_selected, coord_request)#make the move
           if(captures.include?(coord_request)){#check if move is in legal captures
             capture(player_turn, piece_selected, coord_request)#capture the piece
             #check for end game should go here but there is no def for a end game function or how to determine the end game in the class list 
@@ -48,24 +50,42 @@ class Board
 
   end
 
-  def getLegalActions(player_turn, piece)
+  def getLegalActions(player_turn, piece)#within the description of this function it says to call getLegalMoves and getLegalCaptures,
+    # but the function that calls this is also told to make the same calls. does this make this function obsolete?
   end
 
   # Private Methods
   private
 
   def getLegalMoves
+    moves = []
+    
   end
 
   def getLegalCaptures
   end
 
   def transverse(flag, start, direction)
+
+    #check the flag 
+    if flag == 0
+      return nil if piece_at(coord) #return if the piece it there
+    elsif flag <= 4
+      return piece_at(coord) if piece_at(coord) #go deeper
+    end
+
   end
 
   def capture(player_turn, piece, coord_request)
   end
 
   def move(player_turn, piece, coord_request)
+    #they want us to check if the move is valid here again but this is done within actions() which calls this method so it just makes this part redundant?
+    if(getLegalMoves.includes?(coord_request)){
+
+      piece.moveTo(coord_request)#move the piece
+      #deselect Piece
+      @piece_selected = nil #this is redundant b/c this is done in the actions method after the function call????
+    }
   end
 end

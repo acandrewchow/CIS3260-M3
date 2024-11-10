@@ -1,21 +1,23 @@
 class GameIO
-  attr_accessor :game, :usrInput, :response, :stateProcessor
+  attr_accessor :surakarataActions, :gameInterface :usrInput, :response, :stateProcessor
 
   # Constructor
   def initialize(game)
-    @game = SurakartaActions.new()
+    @surakarataActions = SurakartaActions.new()
+    @gameInterface = GameRoomInterface.new()
     @usrInput = nil
     @response = nil
-    @stateProcessor = StateProcessor.new(@game)
+    @stateProcessor = StateProcessor.new()
   end
 
   # Public Methods
   # should have a coordinate,
   # surrender, draw, etc, 
   def sendRequest(userInput)
-    #send the request to Surakarta game Interface (there is no instance of SurakartaInterface in this class)
-    @game.requestAction(userInput)
-
-
+    if (userInput == "display")
+      json = surakarataActions.requestResponse()
+      # Map object is undefined
+      map = parseJSON(json)
+      return(map.to_str)
   end
 end

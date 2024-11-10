@@ -16,7 +16,10 @@ class GameRoom
     "Game has been created"
   end
 
-  def modifygameRoom
+  # depends on the request, surrender/draw
+  # changes username
+  def modifyGameRoom(request)
+    
   end
 
   def getStats

@@ -10,13 +10,13 @@ class Players
   end
 
   # Public Methods
-  def changeUsername(player, name)
-    player.username = name
+  def changeUsername(name)
+    @players.username = name
   end
 
-  def updateScore(player, score)
+  def updateScore(score)
     #class list says "given a finished game, updates the score of one or both players"
-    player.score = score
+    @players.score = score
   end
 
   def getStats
