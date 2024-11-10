@@ -3,9 +3,8 @@ class UserIO
 
   # Constructor
   def initialize
-    @gameRoom = GameRoom.new()
     @gameIO = nil
-    @roomIO = nil
+    @roomIO = RoomIO.new()
     @usrInput = nil
     @output = "Welcome to Surakarta!"
     puts @output
@@ -22,12 +21,14 @@ class UserIO
 
   def getInput
     # Get the user input and set it as usrInput (this is unexplained)
-    print "$ "
+    print "Please enter user input\n"
     input = gets
     @usrInput = input
     # According to the design group you switch depending on the user input 
     if (input == "Setup")
-      @roomIO.setupGameRoom()
+      @gameIO = @roomIO.setupGameRoom()
+    elsif(input == "Surrender")
+      @gameIO.sendRequest(input)
     elsif(input == "updateRoom")
       @roomIO.updateRoomState()
     elsif(input == "displayRoom")

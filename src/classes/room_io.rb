@@ -9,20 +9,22 @@ class RoomIO
   end
 
   # Public Methods
-  def setupGameRoom(players)
-    # idk how this player list is even passed in. 
-    # We need to call makeGame() in GameRoomInterface but we don't have a instance of it
+  def setupGameRoom()
     # Description says it generates a GameRoom object and returns it
-    @gameRoom = GameRoom.new()
+    # Takes in a player list removed
+    if (@gameRoom == nil)
+      @gameRoom = GameRoom.new()
+      @gameRoom.makeGame()
+    end
     return(@gameRoom)
   end
 
   def updateRoomState
-    # updateRoomState is suppose to call changeUserName on GameRoomInterface
-    # We don't have an instance of GameRoomInterface
+    # says that we use getInput() from this class to user. 
+    # getInput is a UI method.
   end
 
   def displayRoomStatus
     # There is not a single sequence diagram where this is called 
-    puts "{@gameRoom.getStats}"
+    puts "#{@gameRoom.getStats}"
 end

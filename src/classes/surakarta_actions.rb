@@ -33,14 +33,14 @@ class SurakartaActions
   private
 
   def endGameCheck
-
+    # Never used in sequence diagram 
+    # classList gives basically no description on how this is done.
+    # We would have to go into the Board itself rather than asking the Board questions.
     
-
   end
 
   def sendResults
-
       # Results sent to GameRoom?
-
+      # We don't have access to anything that could be a score
   end
 end
