@@ -1,10 +1,9 @@
 class GameIO
-  attr_accessor :surakarataActions, :gameInterface :usrInput, :response, :stateProcessor
+  attr_accessor :SurakarataActions, :usrInput, :response, :stateProcessor
 
   # Constructor
-  def initialize(game)
-    @surakarataActions = SurakartaActions.new()
-    @gameInterface = GameRoomInterface.new()
+  def initialize(userInput)
+    @SurakarataActions = SurakartaActions.new()
     @usrInput = nil
     @response = nil
     @stateProcessor = StateProcessor.new()
@@ -14,12 +13,16 @@ class GameIO
   # should have a coordinate,
   # surrender, draw, etc, 
   def sendRequest(userInput)
-    if (userInput == "display")
-      json = surakarataActions.requestResponse()
+    if (userInput == "Display" || userInput == "Setup")
+      json = @SurakarataActions.requestResponse()
       # Map object is undefined within the design doc
-      map = parseJSON(json)
+      map = @stateProcessor.parseJSON(json)
       return(map.to_str)
+    elsif ((userInput.length == 2 && userInput.include?("A".."F") && userInput.include?("1".."6")))
+      # Surakarta interface has no requestAction method
+      @SurakarataActions.requestAction()
     elsif (userInput == "Surrender")
-      return = surakarataActions.requestResponse()
+      return @SurakarataActions.requestResponse()
+    end
   end
 end

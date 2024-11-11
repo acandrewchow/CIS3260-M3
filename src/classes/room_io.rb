@@ -19,12 +19,15 @@ class RoomIO
     return(@gameRoom)
   end
 
-  def updateRoomState
+  def updateRoomState(request)
     # says that we use getInput() from this class to user. 
     # getInput is a UI method.
+    @gameRoom.ChangeUserName
   end
 
   def displayRoomStatus
     # There is not a single sequence diagram where this is called 
+    # It retuns nothing so I assume that it just prints it. 
     puts "#{@gameRoom.getStats}"
+  end
 end

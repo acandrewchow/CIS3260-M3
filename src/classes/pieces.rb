@@ -3,7 +3,7 @@ class Pieces
 
   # Constructor
   def initialize(coor, color)
-    @coor = coord
+    @coor = coor
     @color = color
   end
 

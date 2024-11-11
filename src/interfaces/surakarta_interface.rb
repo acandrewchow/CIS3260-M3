@@ -1,9 +1,10 @@
 module SurakartaInterface
   # Public Methods
-  def requestAction(coordinate)
-    # coordinate abseda ction gets sent to surakarata actions
+  def Action(coordinate)
+    raise "Not implemented"
   end
 
-  def requestResponse(string)
+  def RequestResponse(string)
+    raise "Not implemented"
   end
 end

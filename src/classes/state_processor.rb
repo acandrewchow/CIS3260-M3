@@ -12,6 +12,7 @@ class StateProcessor
   # Public Methods
   def parseJSON(json)
     # a "MAP" object is not defined
+    return("Pretend this is a MAP object from a JSON")
   end
 
   def updateState(gameInput, map, players)

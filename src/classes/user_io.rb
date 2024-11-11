@@ -1,12 +1,12 @@
 class UserIO
-  attr_accessor :gameIO, roomIO :usrInput, :output, :gameRoom,
+  attr_accessor :gameIO, :roomIO, :usrInput, :output, :gameRoom
 
   # Constructor
   def initialize
     @gameIO = nil
     @roomIO = RoomIO.new()
     @usrInput = nil
-    @output = "Welcome to Surakarta!"
+    @output = "Welcome to Surakarta!\n"
     puts @output
   end
 
@@ -14,19 +14,24 @@ class UserIO
   # Displays a 6x6 board
   # . represent a spot in the board if there is no piece present
   def displayBoard(board)
-    gameIO.sendRequest(@usrInput)
-    board.pieces.each do |row|
-      puts row.map { |piece| piece || '.'}.join(' ')
+    puts @gameIO
+    output = @gameIO.sendRequest(@usrInput)
+    puts("#{output}")
   end
 
   def getInput
     # Get the user input and set it as usrInput (this is unexplained)
-    print "Please enter user input\n"
-    input = gets
+    print "Please enter user input:\n"
+    input = gets.chomp
     @usrInput = input
+    
     # According to the design group you switch depending on the user input 
     if (input == "Setup")
-      @gameIO = @roomIO.setupGameRoom()
+      @gameRoom = @roomIO.setupGameRoom()
+      @gameRoom.makeGame()
+      @gameIO = GameIO.new(input)
+      # @gameIO.startGame() does not exist. 
+      self.displayBoard(input)
     elsif(input == "Surrender")
       @gameIO.sendRequest(input)
     elsif(input == "updateRoom")
@@ -35,7 +40,10 @@ class UserIO
       @roomIO.displayRoomStatus()
     elsif (input.length == 2 && input.include?("A".."F") && input.include?("1".."6"))
       @gameIO.sendRequest(input)
+    elsif (input == "ShowBoard")
+      displayBoard(input)
     else
+      puts input
       puts "Nothing entered was a valid input\n"
     end
     return(@usrInput)
@@ -48,7 +56,6 @@ class UserIO
   end
 
   def startGame
-
     #uc402
     puts "$ Enter Player 1's name:"
     player1_name = gets
@@ -72,4 +79,6 @@ class UserIO
     else
       puts "* Invalid input. Please restart game setup."
       return(@gameIO)
+    end
+  end
 end
